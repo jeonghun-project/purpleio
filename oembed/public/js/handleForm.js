@@ -1,17 +1,22 @@
 const getURL = document.querySelector('#textInput');
 const form = document.querySelector('#myForm');
 const headers = document.querySelector('body');
+
 let myFunc;
 
 function drawTable(response) {
+  const existTable = document.querySelector('.table-container');
+  if (existTable) existTable.remove();
   console.log(response);
   const container = document.createElement('div');
   container.className = 'table-container';
 
   for (const key in response) {
-    const raw = document.createElement('tr');
+    const row = document.createElement('tr');
     const left = document.createElement('td');
     const right = document.createElement('td');
+
+    row.className = 'row-container';
 
     left.textContent = key;
     right.textContent = response[`${key}`];
@@ -30,6 +35,7 @@ function drawTable(response) {
       });
       right.prepend(textEle);
     } else if (key === 'thumbnail_url') {
+      right.textContent = '';
       const imageEle = document.createElement('img');
       const textEle = document.createElement('div');
       textEle.textContent = response[`${key}`];
@@ -37,8 +43,8 @@ function drawTable(response) {
       right.append(textEle, imageEle);
     }
 
-    raw.append(left, right);
-    container.append(raw);
+    row.append(left, right);
+    container.append(row);
   }
 
   headers.append(container);

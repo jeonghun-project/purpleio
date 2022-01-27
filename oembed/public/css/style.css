@@ -22,3 +22,8 @@ form {
   width: 100%;
   flex: 1 1 1;
 }
+
+.table-container {
+  margin: 0 auto;
+  max-width: 85vw;
+}

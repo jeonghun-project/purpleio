@@ -24,6 +24,31 @@ form {
 }
 
 .table-container {
-  margin: 0 auto;
+  margin: 1rem auto;
   max-width: 85vw;
+}
+
+.row-container {
+  height: 2rem;
+}
+
+td {
+  padding: 0 1rem;
+  vertical-align: middle;
+}
+
+td > * {
+  padding: 0.5rem 0;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.odd {
+  background-color: #d3d3d3;
+}
+
+.even {
+  background-color: #808080;
 }

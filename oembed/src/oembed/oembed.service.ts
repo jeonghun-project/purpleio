@@ -33,6 +33,10 @@ export class OEmbedService {
       stream = this.oembedRequest(
         `https://api.instagram.com/oembed/?url=${encodeURIComponent(url)}`,
       );
+    } else {
+      stream = this.oembedRequest(
+        `https://${host}/oembed/?url=${encodeURIComponent(url)}`,
+      );
     }
     stream.subscribe(console.log);
     return stream;

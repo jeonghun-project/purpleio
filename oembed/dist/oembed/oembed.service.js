@@ -35,6 +35,9 @@ let OEmbedService = class OEmbedService {
         else if (host === 'www.instagram.com' || host === 'instagram.com') {
             stream = this.oembedRequest(`https://api.instagram.com/oembed/?url=${encodeURIComponent(url)}`);
         }
+        else {
+            stream = this.oembedRequest(`https://${host}/oembed/?url=${encodeURIComponent(url)}`);
+        }
         stream.subscribe(console.log);
         return stream;
     }

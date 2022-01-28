@@ -10,16 +10,20 @@ function drawTable(response) {
   console.log(response);
   const container = document.createElement('div');
   container.className = 'table-container';
-
+  let i = 1;
   for (const key in response) {
     const row = document.createElement('tr');
     const left = document.createElement('td');
     const right = document.createElement('td');
 
-    row.className = 'row-container';
+    row.className = `row-container ${i++ % 2 == 0 ? 'odd' : 'even'}`;
 
     left.textContent = key;
     right.textContent = response[`${key}`];
+
+    if (key === 'title') {
+      right.className = 'title';
+    }
 
     if (key === 'html') {
       const textEle = document.createElement('div');
